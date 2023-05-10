@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Second-Hand price marking</title>
+  
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1 style="color:Violet;">Second-Hand price marking</h1>
+
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{ url_for('predict')}}" method="post">
+    <select name="brand" required="required">
+        <option value="" disabled selected>Select brand</option>
+        <option value="Russell Athletic">Russell Athletic</option>
+        <option value="Valentino">Valentino</option>
+        <option value="Hysteric Glamour">Hysteric Glamour</option>
+        <option value="Nike">Nike</option>
+        <option value="Ralph Lauren">Ralph Lauren</option>
+        <option value="Number (N)ine">Number (N)ine</option>
+        <option value="Prada">Prada</option>
+        <option value="Saint Laurent Paris">Saint Laurent Paris</option>
+        <option value="Dolce & Gabbana">Dolce & Gabbana</option>
+        <option value="Military">Military</option>
+        <option value="Levi's">Levi's</option>
+        <option value="Anti Social Social Club">Anti Social Social Club</option>
+        <option value="The North Face">The North Face</option>
+        <option value="Seditionaries">Seditionaries</option>
+        <option value="Mickey Mouse">Mickey Mouse</option>
+        <option value="Lacoste">Lacoste</option>
+        <option value="Undercover">Undercover</option>
+        <option value="Tour Tee">Tour Tee</option>
+        <option value="Maison Margiela">Maison Margiela</option>
+        <option value="Issey Miyake">Issey Miyake</option>
+        <option value="Bape">Bape</option>
+        <option value="Patagonia">Patagonia</option>
+        <option value="Dickies">Dickies</option>
+        <option value="Acne Studios">Acne Studios</option>
+        <option value="Kapital">Kapital</option>
+        <option value="Gucci">Gucci</option>
+        <option value="Burberry">Burberry</option>
+        <option value="Tommy Hilfiger">Tommy Hilfiger</option>
+        <option value="Louis Vuitton">Louis Vuitton</option>
+        <option value="Polo Ralph Lauren">Polo Ralph Lauren</option>
+        <option value="Supreme">Supreme</option>
+        <option value="Balenciaga">Balenciaga</option>
+        <option value="Reebok">Reebok</option>
+        <option value="Versace">Versace</option>
+        <option value="Off-White">Off-White</option>
+        <option value="Hawaiian Shirt">Hawaiian Shirt</option>
+        <option value="Harley Davidson">Harley Davidson</option>
+        <option value="Hype">Hype</option>
+        <option value="Dior">Dior</option>
+        <option value="Distressed Denim">Distressed Denim</option>
+        <option value="Fila">Fila</option>
+        <option value="Rick Owens">Rick Owens</option>
+        <option value="Palace">Palace</option>
+        <option value="Lee">Lee</option>
+        <option value="Vans">Vans</option>
+        <option value="Uniqlo">Uniqlo</option>
+        <option value="NBA">NBA</option>
+        <option value="Guess">Guess</option>
+        <option value="Ysl Pour Homme">Ysl Pour Homme</option>
+        <option value="Yves Saint Laurent">Yves Saint Laurent</option>
+        <option value="Disney">Disney</option>
+        <option value="Travis Scott">Travis Scott</option>
+        <option value="Champion">Champion</option>
+        <option value="Puma">Puma</option>
+        <option value="Avant Garde">Avant Garde</option>
+        <option value="Band Tees">Band Tees</option>
+        <option value="Fruit Of The Loom">Fruit Of The Loom</option>
+        <option value="Kanye West">Kanye West</option>
+        <option value="Luxury">Luxury</option>
+        <option value="Calvin Klein">Calvin Klein</option>
+        <option value="Gildan">Gildan</option>
+        <option value="Hanes">Hanes</option>
+        <option value="Gap">Gap</option>
+        <option value="Adidas">Adidas</option>
+        <option value="Converse">Converse</option>
+        <option value="MLB">MLB</option>
+        <option value="Kapital Kountry">Kapital Kountry</option>
+        <option value="Stussy">Stussy</option>
+        <option value="Kappa">Kappa</option>
+        <option value="NFL">NFL</option>
+        <option value="Versace Jeans Couture">Versace Jeans Couture</option>
+        <option value="Rick Owens Drkshdw">Rick Owens Drkshdw</option>
+        <option value="Levi's Vintage Clothing">Levi's Vintage Clothing</option>
+    </select><br>    
+    </select><br>
+        <select name="color" required="required">
+        <option value="" disabled selected>Select color</option>
+        <option value="Black">Black</option>
+        <option value="Blue">Blue</option>
+        <option value="Brown">Brown</option>
+        <option value="Camo">Camo</option>
+        <option value="Checker">Checker</option>
+        <option value="Gold">Gold</option>
+        <option value="Green">Green</option>
+        <option value="Grey">Grey</option>
+        <option value="Muticolor">Multicolor</option>
+        <option value="Orange">Orange</option>
+        <option value="Pink">Pink</option>
+        <option value="Purple">Purple</option>
+        <option value="Red">Red</option>
+        <option value="Silver">Silver</option>
+        <option value="Tie dye">Tie dye</option>
+        <option value="White">White</option>
+        <option value="Yellow">Yellow</option>
+        <option value="multi_color">multi_color</option>
+    </select>
+    <br>
+    <select name="condition" required="required">
+        <option value="" disabled selected>Select condition</option>
+        <option value="0">New</option>
+        <option value="1">Gently Used</option>
+        <option value="2">Used</option>
+        <option value="3">Other</option>
+        <!-- Add more condition options as needed -->
+    </select><br>
+    <select name="size" required="required">
+        <option value="" disabled selected>Select size</option>
+        <option value="xs">Extra Small</option>
+        <option value="s">Small</option>
+        <option value="m">Medium</option>
+        <option value="l">Large</option>
+        <option value="xl">Extra Large</option>
+        <option value="xxl">Double Extra Large</option>
+        <option value="xxs">Double Extra Small</option>
+        <option value="xxxl">Triple Extra Large</option>
+        <option value="xxxxl">Quadruple Extra Large</option>
+        <option value="ONE SIZE">ONE SIZE</option>
+
+    </select><br>
+
+    <select name="gender" required="required">
+        <option value="" disabled selected>Select gender</option>
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        <!-- Add more gender options as needed -->
+    </select><br>
+    <select name="category" required="required">
+        <option value="" disabled selected>Select category</option>
+        <option value="Top">Top</option>
+        <option value="Bottom">Bottom</option>
+        <option value="Outerwear">Outerwear</option>
+        <option value="Footwear">Footwear</option>
+        <option value="Acceorie">Acceorie</option>
+        <option value="Luggage">Luggage</option>
+        <option value="Tailoring">Tailoring</option>
+        <!-- Add more category options as needed -->
+    </select><br>
+    <select name="sub_category" required="required">
+        <option value="" disabled selected>Select category</option>
+        <option value="Belt">Belt</option>
+        <option value="Blazer">Blazer</option>
+        <option value="Bloue">Bloue</option>
+        <option value="Bodyuit">Bodysuit</option>
+        <option value="Bomber">Bomber</option>
+        <option value="Boot">Boot</option>
+        <option value="ButtoUp">Button Up</option>
+        <option value="Cape">Cape</option>
+        <option value="Caual Shoe">Casual Shoe</option>
+        <option value="Caual Pant">Casual Pant</option>
+        <option value="Clutche">Clutch</option>
+        <option value="Coat">Coat</option>
+        <option value="Crobody">Crossbody</option>
+        <option value="Crop Top">Crop Top</option>
+        <option value="Cropped Pant">Cropped Pant</option>
+        <option value="Denim">Denim</option>
+        <option value="Denim Jacket">Denim Jacket</option>
+        <option value="DowJacket">Down Jacket</option>
+        <option value="Flat">Flat</option>
+        <option value="Formal Shoe">Formal Shoe</option>
+        <option value="Formal Trouer">Formal Trouser</option>
+        <option value="Glae">Glasses</option>
+        <option value="Glove">Glove</option>
+        <option value="Glove Scarve">Glove Scarf</option>
+        <option value="Hair Acceorie">Hair Accessories</option>
+        <option value="Handle">Handle</option>
+        <option value="Heavy Coat">Heavy Coat</option>
+        <option value="Heel">Heel</option>
+        <option value="Hi Top Sneaker">Hi Top Sneaker</option>
+        <option value="Hobo">Hobo</option>
+        <option value="Hoodie">Hoodie</option>
+        <option value="Jacket">Jacket</option>
+        <option value="Jean">Jeans</option>
+        <option value="Jerey">Jersey</option>
+        <option value="Jogger">Jogger</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Jumpuit">Jumpsuit</option>
+        <option value="Legging">Legging</option>
+        <option value="Light Jacket">Light Jacket</option>
+        <option value="Long Sleeve T">Long Sleeve T</option>
+        <option value="Low Top Sneaker">Low Top Sneaker</option>
+        <option value="Luggage">Luggage</option>
+        <option value="Luggage Travel">Luggage Travel</option>
+        <option value="Maxi rt">Maxi Skirt</option>
+        <option value="Meenger Satchel">Messenger Satchel</option>
+        <option value="Micneou">Microphone</option>
+        <option value="Midi rt">Midi Skirt</option>
+        <option value="Mill Short">Military Shorts</option>
+        <option value="Mini">Mini</option>
+        <option value="Mini rt">Mini Skirt</option>
+        <option value="Mule">Mule</option>
+        <option value="Number (N)ine">Number (N)ine</option>
+        <option value="Number (N)ine Sweatpant Jogger">Number (N)ine Sweatpant Jogger</option>
+        <option value="Pant">Pant</option>
+        <option value="Parka">Parka</option>
+        <option value="Periodical">Periodical</option>
+        <option value="Platform">Platform</option>
+        <option value="Polo">Polo</option>
+        <option value="RaiJacket">RaiJacket</option>
+        <option value="Raincoat">Raincoat</option>
+        <option value="Sandal">Sandal</option>
+        <option value="Scarve">Scarf</option>
+        <option value="Shirt ButtoUp">Shirt Button Up</option>
+        <option value="Short">Short</option>
+        <option value="Short Sleeve T">Short Sleeve T</option>
+        <option value="Shoulder">Shoulder</option>
+        <option value="Slip On">Slip On</option>
+        <option value="Sock Underwear">Sock Underwear</option>
+        <option value="Sunglae">Sunglasses</option>
+        <option value="Sweater">Sweater</option>
+        <option value="Sweater Knitwear">Sweater Knitwear</option>
+        <option value="Sweathirt">Sweatshirt</option>
+        <option value="Sweathirt Hoodie">Sweatshirt Hoodie</option>
+        <option value="Sweatpant">Sweatpant</option>
+        <option value="Sweatpant Jogger">Sweatpant Jogger</option>
+        <option value="Swimwear">Swimwear</option>
+        <option value="Tank Top">Tank Top</option>
+        <option value="Tank Top Sleevele">Tank Top Sleeveless</option>
+        <option value="Tie Pocketquare">Tie Pocket Square</option>
+        <option value="Toiletry Pouche">Toiletry Pouch</option>
+        <option value="Tote">Tote</option>
+        <option value="Tuxedo">Tuxedo</option>
+        <option value="Very">Very</option>
+        <option value="Vet">Vet</option>
+        <option value="Wallet">Wallet</option>
+        <option value="Watche">Watches</option>
+    </select><br>
+
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict sold price of second-hand clothing</button>
+</form>
+
+
+
+   <br>
+   <br>
+   <h4 style="color:Violet;">
+   {{ prediction_text }} </h4>
+
+ </div>
+
+
+</body>
+</html>
